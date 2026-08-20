@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>header</title>
+</head>
+<body>
+    <header id="header" class="vertical_align">
+        <div class="logo vertical_align">
+            <a href="../index.html" class="sub_logo">
+                <img src="../images/icon32_arrowleft.svg" alt="홈으로 가는 버튼">
+            </a>
+            <h3 class="main_logo">SOUND HAMTORY</h3>
+        </div>
+
+        <nav class="header_nav">
+            <a href="../studio.html">Studio</a>
+            <a href="../feed.html">Feed</a>
+            <a href="javascript:;" class="login-open-btn">Log-In
+                
+            </a>
+        </nav>
+    </header>
+
+    <!-- 로그인 팝업 -->
+<div class="login-modal">
+    <!-- 로그인 창 -->
+    <section class="login-popup borderB">
+        <!-- 닫기 버튼 -->
+         <img src="./images/icon24_closed.svg" alt="닫기 버튼" class="login-close">
+
+        <!-- 제목 -->
+        <div class="login-title">
+            <span>SOUND HAMTORY</span>
+            <h2>WELCOME!</h2>
+            <p>사운드 하모니에 오신 것을 환영해요!</p>
+        </div>
+
+        <!-- 로그인 폼 -->
+        <form class="login-form">
+            <div class="login_id borderB">
+                <input type="text" placeholder="이메일 또는 사용자 이름">
+            </div>
+            <div class="login_password borderB">
+                <input type="password" id="password" placeholder="비밀번호" class="borderB">
+                <!-- 비밀번호 보기 -->
+                <img src="./images/icon16_eyeclosed.svg" alt="비밀번호 보임" class="passwordshow show">
+                <img src="./images/icon16_eyeopen.svg" alt="비밀번호 숨김" class="passwordshow">
+            </div>
+            <!-- 로그인 옵션 -->
+            <article class="login_option">
+                <label class="remember">
+                    <img src="./images/icon16_checkboxnone.svg" alt="체크박스" class="show">
+                    <img src="./images/icon16_checkboxfilled.svg" alt="체크박스 활성화">
+                    로그인 상태 유지
+                </label>
+                <div>
+                    <a href="javascript:;"> 회원가입 </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="javascript:;"> 비밀번호 찾기 </a>
+                </div>
+            </article>
+
+            <!-- 일반 로그인 -->
+            <button type="submit" class="login-submit borderB">
+                로그인
+            </button>
+        </form>
+
+        <!-- 구분선 -->
+        <div class="login-divider">
+            <span></span>
+            <p>간편로그인</p>
+            <span></span>
+        </div>
+
+        <!-- 간편 로그인 -->
+        <div class="social_login">
+            <!-- 구글 -->
+            <a href="javascript:;" class="social_btn google borderB">
+            <img src="./images/icon24_google.svg" alt="구글 간편로그인">
+            GOOGLE &nbsp;
+            </a>
+
+            <!-- 카카오 -->
+            <a href="javascript:;" class="social_btn kakao borderB">
+            <img src="./images/icon24_kakao.svg" alt="카카오 간편로그인">
+            KAKAO &nbsp;
+            </a>
+
+            <!-- 네이버 -->
+            <a href="javascript:;" class="social_btn naver borderB">
+            <img src="./images/icon24_naver.svg" alt="네이버 간편로그인">
+            NAVER &nbsp;
+            </a>
+        </div>
+    </section>
+</div>
+</body>
+</html>

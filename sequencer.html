@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>instrument</title>
+</head>
+<body>
+    <section class="s_sequencer">
+        <!-- 시퀀서 상단 시간 -->
+        <div class="t_sequencer">
+            <div class="time">
+                <span>00:00:00</span>
+            </div>
+
+            <div class="time_line">
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+                <span>6</span>
+                <span>7</span>
+                <span>8</span>
+            </div>
+        </div>
+
+        <!-- 시퀀서 본체 -->
+        <div class="sequencer">
+            <!-- 왼쪽 트랙 메뉴 -->
+            <div class="left">
+                <!-- TRACK 1 -->
+                <div class="track_menu">
+                    <div class="t_info">
+                        <span>TRACK1</span>
+                    </div>
+
+                    <div class="t_button">
+                        <button type="button">S</button>
+                        <button type="button">M</button>
+                    </div>
+                </div>
+
+                <!-- TRACK 2 -->
+                <div class="track_menu">
+                    <div class="t_info">
+                        <span>TRACK2</span>
+                    </div>
+
+                    <div class="t_button">
+                        <button type="button">S</button>
+                        <button type="button">M</button>
+                    </div>
+                </div>
+
+                <!-- TRACK 3 -->
+                <div class="track_menu">
+                    <div class="t_info">
+                        <span>TRACK3</span>
+                    </div>
+
+                    <div class="t_button">
+                        <button type="button">S</button>
+                        <button type="button">M</button>
+                    </div>
+                </div>
+
+                <!-- 트랙 추가 -->
+                <button type="button" class="add_track">
+                    ADD TRACK
+
+                    <img src="./images/icon16_plus.svg" alt="트랙 추가">
+                </button>
+            </div>
+
+            <!-- 가운데 노트 블록 영역 -->
+            <div class="center">
+                <div class="track track1"></div>
+                <div class="track track2"></div>
+                <div class="track track3"></div>
+                <div class="t_empty"></div>
+                <!-- 가로 스크롤 -->
+                <div class="s_scroll">
+                    <div class="scrollbar"></div>
+                </div>
+            </div>
+
+            <!-- 오른쪽 기능 버튼 -->
+            <div class="right">
+                
+                <button type="button" class="play_button">
+                    <img src="./images/icon20_play.svg" alt="플레이">
+                    <span>Play</span>
+                </button>
+
+                <button type="button" class="record_button">
+                    <img src="./images/icon20_record.svg" alt="레코드">
+                    <span class="record_text">Record</span>
+                </button>
+
+                <button type="button" class="clear_button">
+                    <img src="./images/icon20_closed.svg" alt="클리어">
+
+                    <span>Clear</span>
+                    <div class="clear_menu" hidden>
+                        <span class="clear_track">This Track</span>
+                        <span class="clear_all">Clear All</span>
+                    </div>
+                </button>
+                
+                <button type="button" class="save_button">
+                    <img src="./images/icon20_save.svg" alt="저장">
+
+                    <span>Save</span>
+                </button>
+                
+                <button type="button" class="file_button">
+                    <img src="./images/icon20_file.svg" alt="파일">
+
+                    <span>File</span>
+                </button>
+
+                <input type="file" class="file_input" accept=".json, application/json" hidden>
+            </div>
+        </div>
+    </section>
+
+    <!-- 세부 팝업 -->
+    <div class="note_popup" hidden>
+        <button type="button" class="cut_note">컷</button>
+        <button type="button" class="copy_note">복사</button>
+        <button type="button" class="delete_note">삭제</button>
+    </div>
+
+    
+    <div class="action_popup_wrap" hidden>
+        <div class="action_popup">
+            <strong class="action_popup_title">
+                작업을 저장할까요?
+            </strong>
+
+            <p class="action_popup_text">
+                현재 작업이 저장됩니다.
+            </p>
+
+            <div class="action_popup_buttons"></div>
+
+            <p class="save_complete_message" hidden>
+                저장이 완료되었습니다.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

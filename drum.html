@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRUM</title>
+
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/drum.css">
+    <link rel="stylesheet" href="./css/common_instrument.css">
+    <link rel="stylesheet" href="./css/drummedia.css">
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="header-wrap"></div>
+        <section>
+            <div class="instrument_character">
+                <!-- 평소 이미지 -->
+                <img src="./images/drum1.png"
+                    alt=""
+                    class="character_basic">
+
+                <!-- 연주 이미지 -->
+                <img src="./images/drum2.png"
+                    alt=""
+                    class="character_play">
+            </div>
+            <article class="panel">
+                <button type="button" class="se_toggle">Create Music!</button>
+
+                <!-- 드럼 연주 영역 -->
+                <section class="drum">
+                    <!-- 기존 피아노 시퀀서 JavaScript 호환용 숨김 영역 -->
+                    <div class="piano drum_piano_shell" aria-hidden="true">
+                        <div class="piano_inner"></div>
+                    </div>
+
+                    <div class="drum_kit">
+
+                        <button type="button" class="drum_piece cymbal ride" data-drum="ride" data-note="C5"
+                            data-key="A" aria-label="심벌">
+                        </button>
+
+                        <button type="button" class="drum_piece drum_shell floor_tom" data-drum="floor" data-note="D5"
+                            data-key="S" aria-label="플로어 탐">
+                        </button>
+
+                        <button type="button" class="drum_piece drum_shell large_tom" data-drum="largeTom"
+                            data-note="E5" data-key="D" aria-label="라지 탐">
+                        </button>
+
+                       
+
+                        
+                        <button type="button" class="drum_piece drum_shell small_tom" data-drum="smallTom"
+                            data-note="F5" data-key="J" aria-label="스몰 탐">
+                        </button>
+
+                       
+                        <button type="button" class="drum_piece drum_shell snare" data-drum="snare" data-note="G5"
+                            data-key="K" aria-label="스네어 드럼">
+                        </button>
+
+                        
+                        <button type="button" class="drum_piece cymbal crash" data-drum="crash" data-note="A5"
+                            data-key="L" aria-label="크래시 심벌">
+                        </button>
+                    </div>
+                </section>
+                <div id="sequencer-wrap"></div>
+            </article>
+        </section>
+    </div>
+
+    <div id="popup-wrap"></div>
+
+    <script src="./js/drum.js"></script>
+    <script src="./js/common.js"></script>
+</body>
+
+</html>

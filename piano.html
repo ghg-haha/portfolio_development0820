@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIANO</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/piano.css">
+    <link rel="stylesheet" href="./css/common_instrument.css">
+
+    <link rel="stylesheet" href="./css/pianomedia.css">
+</head>
+<body>
+    <div id="wrap">
+        <div id="header-wrap"></div>
+        <section>
+           <div class="instrument_character">
+                <!-- 평소 이미지 -->
+                <img src="./images/cat2.png"
+                    alt=""
+                    class="character_basic">
+
+                <!-- 연주 이미지 -->
+                <img src="./images/cat1.png"
+                    alt=""
+                    class="character_play">
+            </div>
+            <article class="panel">
+                <button type="button" class="se_toggle">Create Music!</button>
+
+                <!-- 피아노 연주 영역 -->
+                <section class="piano">
+                    <section class="step2">
+                        <span>STEP 2</span>
+                        <p>악기를 눌러 노래를 연주!</p>
+                    </section>
+                    <div class="piano_inner"></div>
+                </section>
+
+                <div id="sequencer-wrap">
+                    <div class="step3">
+                        <span>STEP 3</span>
+                        <p>음을 쌓아 나만의 노래를 만들어보자!</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </div>
+
+    <div id="popup-wrap"></div>
+
+<a href="javascript:;" class="tutorial_skip">SKIP ></a>
+ <script src="./js/common.js"></script>
+ <script src="./js/piano.js"></script>
+
+</body>
+
+
+</html>

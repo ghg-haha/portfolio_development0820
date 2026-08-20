@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sound Hamtory - Feed</title>
+
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/feed.css">
+
+</head>
+<body>
+    <div id="wrap" class="normal">
+        <div id="header-wrap"></div>
+
+        <!-- MAIN -->
+        <main id="main">
+            
+            <!-- MY MUSIC / SHARED MUSIC TAB -->
+            <div class="music_tab">
+                <button type="button" class="tab_button active" data-tab="my">
+                    <img src="./images/icon24_mymusic.svg" alt="내 음악 페이지">
+                    <span>My Music</span>
+                </button>
+
+                <button type="button" class="tab_button" data-tab="shared">
+                    <img src="./images/icon24_sharedmusic.svg" alt="공유음악 페이지">
+                    <span>Shared Music</span>
+                </button>
+            </div>
+
+            <!--  my music 전체 영역 -->
+            <section class="music_wrap borderB">
+                <!-- LEFT MUSIC LIST -->
+                <section class="music_list borderB">
+                    <!-- MY MUSIC FILTER -->
+                    <div class="my_music_filter">
+                        <!-- FILTER -->
+                        <div class="filter_dropdown music_filter_dropdown">
+
+                            <button type="button" class="filter_trigger borderS" data-value="all">
+                                <span>All</span>
+                                <img src="./images/icon16_downarrow.svg" alt="아래방향 화살표">
+                            </button>
+
+                            <!-- 필터를 누르면 뜨는 창 -->
+                            <div class="filter_menu borderS">
+
+                                <button type="button" class="active" data-value="all">
+                                    All
+                                </button>
+
+                                <button type="button" data-value="shared">
+                                    Shared
+                                </button>
+
+                                <button type="button" data-value="private">
+                                    Private
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- SEARCH -->
+                        <div class="search_box borderS">
+                            <input type="text" class="search_input" placeholder="Search" >
+
+                            <button type="button" class="search_button">
+                                <img src="./images/icon20_search.svg" alt="검색">
+                            </button>
+                        </div>
+                    </div>
+
+
+
+                    <!-- =========================================
+                        SHARED MUSIC FILTER
+                    ========================================== -->
+                    <div class="shared_music_filter">
+
+
+                        <!-- FILTER -->
+                        <div class="filter_dropdown shared_filter_dropdown">
+
+                            <button
+                                type="button"
+                                class="filter_trigger borderS"
+                                data-value="all"
+                            >
+                                <span>
+                                    All
+                                </span>
+
+                                <img
+                                    src="./images/icon16_downarrow.svg"
+                                    alt=""
+                                >
+                            </button>
+
+
+                            <div class="filter_menu borderS">
+
+                                <button
+                                    type="button"
+                                    class="active"
+                                    data-value="all"
+                                >
+                                    All
+                                </button>
+
+                                <button
+                                    type="button"
+                                    data-value="favorite"
+                                >
+                                    Favorites
+                                </button>
+
+                                <button
+                                    type="button"
+                                    data-value="recommended"
+                                >
+                                    For You
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- SEARCH -->
+                        <div class="search_box borderS">
+
+                            <input
+                                type="text"
+                                class="search_input"
+                                placeholder="Search"
+                            >
+
+
+                            <button
+                                type="button"
+                                class="search_button"
+                            >
+                                <img
+                                    src="./images/icon20_search.svg"
+                                    alt="검색"
+                                >
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =========================================
+                        JS에서 MUSIC ITEM 생성
+                    ========================================== -->
+                    <div class="music_list_wrap">
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- =================================================
+                    MORE MENU
+
+                    리스트 안에 넣지 않고 밖에 둠.
+                    그래야 잘리지 않음.
+                ================================================== -->
+                <div class="more_menu borderB">
+
+                    <button
+                        type="button"
+                        class="share_state"
+                    >
+                        Share
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="delete_menu"
+                    >
+                        Delete
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="edit_menu"
+                    >
+                        Edit Music
+                    </button>
+
+                </div>
+
+    <!-- =================================================
+                    MUSIC PLAYER
+                ================================================== -->
+                <section class="music_player borderB">
+
+
+                    <!-- =============================================
+                        USER
+                    ============================================== -->
+                    <div class="player_user">
+
+                        <div class="user_info">
+
+                            <img
+                                src="./images/icon48_profile.svg"
+                                alt="기본 프로필"
+                            >
+
+                            <span>
+                                DanBee
+                            </span>
+
+                        </div>
+
+
+                        <span class="upload_date">
+                            2026.07.29
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- =============================================
+                        PRIVATE일 때만 보이는 EDIT
+                    ============================================== -->
+                    <button
+                        type="button"
+                        class="edit_button borderS"
+                    >
+                        Edit
+                    </button>
+
+
+
+                    <!-- =============================================
+                        LP
+                    ============================================== -->
+                    <div class="album_area">
+
+
+                        <!--
+                            ★ 이 안에 LP와 표지를 같이 넣음.
+
+                            부모 album_record를 돌리기 때문에
+                            두 이미지가 같이 회전함.
+                        -->
+                        <div class="album_record">
+
+
+                            <!-- LP판 -->
+                            <img
+                                src="./images/lp.png"
+                                alt="LP"
+                                class="record_image"
+                            >
+
+
+                            <!--
+                                LP 기본 표지
+
+                                기본 = lp_img.png
+
+                                사용자가 Edit에서 사진 설정하면
+                                JS가 사용자 이미지로 변경
+                            -->
+                            <img
+                                src="./images/lp_img.png"
+                                alt="앨범 표지"
+                                class="album_cover"
+                            >
+
+
+                        </div>
+
+
+
+                        <!-- TITLE -->
+                        <h2 class="player_title">
+                            hambing2
+                        </h2>
+
+
+                    </div>
+
+
+
+                    <!-- =============================================
+                        PROGRESS
+
+                        ★ max를 100으로 하지 않음.
+
+                        JS가 실제 음악 길이를 읽어서
+                        max 값을 설정함.
+                    ============================================== -->
+                    <div class="play_progress">
+
+                        <input
+                            type="range"
+                            class="progress_bar"
+                            min="0"
+                            max="0"
+                            step="0.01"
+                            value="0"
+                        >
+
+
+                        <div class="play_time">
+
+                            <span class="current_time">
+                                00:00
+                            </span>
+
+
+                            <span class="total_time">
+                                00:00
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =============================================
+                        PLAYER CONTROL
+                    ============================================== -->
+                    <div class="player_control">
+
+
+                        <!-- FAVORITE -->
+                        <button
+                            type="button"
+                            class="favorite_button"
+                        >
+                            <img
+                                src="./images/icon24_starstroke.svg"
+                                alt="즐겨찾기"
+                            >
+                        </button>
+
+
+
+                        <!-- PREVIOUS -->
+                        <button
+                            type="button"
+                            class="prev_button"
+                        >
+                            <img
+                                src="./images/icon32_prevarrow.svg"
+                                alt="이전 곡"
+                            >
+                        </button>
+
+
+
+                        <!--
+                            ★ PLAY
+
+                            CSS에서 원형을 만듦.
+
+                            JS에서
+                            PLAY ↔ PAUSE 아이콘 변경
+                        -->
+                        <button
+                            type="button"
+                            class="play_button borderB"
+                        >
+                            <img
+                                src="./images/icon32_play.svg"
+                                alt="재생"
+                            >
+                        </button>
+
+
+
+                        <!-- NEXT -->
+                        <button
+                            type="button"
+                            class="next_button"
+                        >
+                            <img
+                                src="./images/icon32_nextarrow.svg"
+                                alt="다음 곡"
+                            >
+                        </button>
+
+
+
+                        <!-- SHARE / FAT -->
+                        <button
+                            type="button"
+                            class="share_button"
+                        >
+                            <img
+                                src="./images/icon24_share.svg"
+                                alt="공유"
+                            >
+                        </button>
+
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- =================================================
+                    COMMENTS
+
+                    SHARED 음악일 때 표시.
+                    PRIVATE는 JS에서 숨김.
+                ================================================== -->
+                <section class="comment_section borderB">
+
+
+                    <h3>
+                        COMMENTS
+                    </h3>
+
+
+
+                    <!-- JS 생성 -->
+                    <div class="comment_list">
+                    </div>
+
+
+
+                    <!-- COMMENT WRITE -->
+                    <div class="comment_write borderS">
+
+                        <input
+                            type="text"
+                            class="comment_input"
+                            placeholder="Write a comment..."
+                        >
+
+
+                        <button
+                            type="button"
+                            class="comment_button"
+                        >
+                            <img
+                                src="./images/icon24_chat.svg"
+                                alt="댓글 등록"
+                            >
+                        </button>
+
+                    </div>
+
+
+                </section>
+
+                
+
+
+            </section>
+
+
+
+            <!-- =================================================
+                EMPTY MUSIC
+
+                음악이 하나도 없을 때
+            ================================================== -->
+            <section class="empty_music borderB">
+
+
+                <div class="empty_inner borderB">
+
+
+                    <img
+                        src="./images/monkey.png"
+                        alt="원숭이"
+                        class="empty_character"
+                    >
+
+
+                    <h2>
+                        Let's make some noise!
+                    </h2>
+
+
+                    <button
+                        type="button"
+                        class="start_button borderB"
+                    >
+                        START
+                    </button>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =================================================
+                EDIT MUSIC MODAL
+            ================================================== -->
+            <div class="edit_modal">
+
+
+                <section class="edit_form borderB">
+
+
+                    <h2>
+                        Edit Music
+                    </h2>
+
+
+
+                    <!-- COVER -->
+                    <div class="edit_cover_area">
+
+
+                        <img
+                            src="./images/cover_img1.png"
+                            alt="앨범 커버"
+                            class="edit_cover_preview"
+                        >
+
+
+                        <div class="edit_cover_info">
+
+                            <strong>
+                                앨범 표지
+                            </strong>
+
+                            <span>
+                                음악에 사용할 이미지를 선택해 주세요.
+                            </span>
+
+                            <label
+                                for="edit_cover_input"
+                                class="edit_cover_button borderS"
+                            >
+                                Change Cover
+                            </label>
+
+                            <input
+                                type="file"
+                                id="edit_cover_input"
+                                class="edit_cover_input"
+                                accept="image/*"
+                            >
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- TITLE -->
+                    <label
+                        for="edit_title_input"
+                        class="edit_label"
+                    >
+                        음악 제목
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="edit_title_input"
+                        class="edit_title_input borderS"
+                        maxlength="20"
+                    >
+
+
+
+                    <!-- HASHTAGS -->
+                    <label
+                        for="edit_tag_input"
+                        class="edit_label"
+                    >
+                        해시태그
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="edit_tag_input"
+                        class="edit_tag_input borderS"
+                        placeholder="Hip-Hop, Rock"
+                    >
+
+
+                    <p class="edit_help">
+                        해시태그는 쉼표로 구분해 주세요.
+                    </p>
+
+
+
+                    <!-- BUTTON -->
+                    <div class="edit_form_button">
+
+                        <button
+                            type="button"
+                            class="edit_cancel borderS"
+                        >
+                            Cancel
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="edit_save borderS"
+                        >
+                            Save
+                        </button>
+
+                    </div>
+
+
+                </section>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                SHARE MUSIC CONFIRM POPUP
+            ================================================== -->
+            <div class="share_confirm_modal">
+
+
+                <section class="share_confirm borderB">
+
+
+                    <h2>
+                        이 음악을 공유할까요?
+                    </h2>
+
+
+                    <p>
+                        공유한 음악은 더 이상 수정할 수 없습니다.
+                    </p>
+
+
+
+                    <div class="share_confirm_actions">
+
+
+                        <button
+                            type="button"
+                            class="share_cancel borderS"
+                        >
+                            Cancel
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="share_yes borderS"
+                        >
+                            Share
+                        </button>
+
+
+                    </div>
+
+
+                </section>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                DELETE MUSIC CONFIRM POPUP
+
+                ★ 브라우저 confirm() 사용 안 함.
+            ================================================== -->
+            <div class="delete_confirm_modal">
+
+
+                <section class="delete_confirm borderB">
+
+
+                    <h2>
+                        이 음악을 삭제할까요?
+                    </h2>
+
+
+                    <p>
+                        삭제한 음악은 다시 복구할 수 없습니다.
+                    </p>
+
+
+
+                    <div class="delete_confirm_actions">
+
+
+                        <button
+                            type="button"
+                            class="delete_cancel borderS"
+                        >
+                            Cancel
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="delete_yes borderS"
+                        >
+                            Delete
+                        </button>
+
+
+                    </div>
+
+
+                </section>
+
+
+            </div>
+
+
+        </main>
+
+        <footer id="footer">
+            <p>© 2026 SOUND HAMTORY. All rights reserved.</p>
+            <nav class="footer_nav">
+                <a href="javascript:;">Features</a>
+                <a href="javascript:;">Pricing</a>
+                <a href="javascript:;">Community</a>
+                <a href="javascript:;">Templates</a>
+                <a href="javascript:;">Help</a>
+                <a href="javascript:;">Center</a>
+            </nav>
+        </footer>
+    </div>
+    <a href="javascript:;" class="tutorial_skip borderS">START!</a>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="./js/feed.js"></script>
+<div class="step7">
+    <span>STEP 7</span>
+    <p>
+        우리의 음악을 나누고 즐겨봐!
+    </p>
+</div>
+<script src="./js/common.js"></script>
+<script src="./js/feed.js"></script>
+</body>
+</html>

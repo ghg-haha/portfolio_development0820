@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>OTAMATONE</title>
+
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/otamatone.css">
+    <link rel="stylesheet" href="./css/common_instrument.css">
+
+</head>
+
+<body>
+    
+    <div id="wrap">
+        <div id="header-wrap"></div>
+        <section class="s_otamatone">
+             <div class="instrument_character">
+                <!-- 평소 이미지 -->
+                <img src="./images/otamatone1.png"
+                    alt=""
+                    class="character_image character_basic">
+
+                <!-- 연주 이미지 -->
+                <img src="./images/otamatone2.png"
+                    alt=""
+                    class="character_image character_play">
+
+                    <button type="button" class="otama_ball ball_left" aria-label="왼쪽 볼로 선택한 음 연주">
+                            <span>PRESS</span>
+                    </button>
+
+                    <!-- 오른쪽 볼 연주 버튼 -->
+                <button type="button" class="otama_ball ball_right" aria-label="오른쪽 볼로 선택한 음 연주">
+                    <span>PRESS</span>
+                </button>
+                </div>
+
+                         <!-- 오른쪽 오타마톤 목 -->
+                    <div class="otama_neck">
+                        <!-- 공통 음 선택 버튼 영역 -->
+                        <div class="otama_notes" aria-label="오타마톤 음 선택">
+                            <button type="button" class="otama_note note_c" data-note="C5">C</button>
+
+                            <button type="button" class="otama_note note_d" data-note="D5">D</button>
+
+                            <button type="button" class="otama_note note_e" data-note="E5">E</button>
+
+                            <button type="button" class="otama_note note_f" data-note="F5">F</button>
+
+                            <button type="button" class="otama_note note_g" data-note="G5">G</button>
+
+                            <button type="button" class="otama_note note_a" data-note="A5">A</button>
+
+                            <button type="button" class="otama_note note_b" data-note="B5">B</button>
+
+                            <button type="button" class="otama_note note_high_c" data-note="C6">High C</button>
+                        </div>
+                    </div>
+            
+            <article class="panel">
+                 <button type="button" class="se_toggle">Create Music!</button>
+                <section class="otamatone_area">
+                    <div class="piano otama_piano_shell" aria-hidden="true">
+                        <div class="piano_inner"></div>
+                    </div>
+
+                   
+                </section>
+
+                <div id="sequencer-wrap"></div>
+            </article>
+        </section>
+    </div>
+
+    <div id="popup-wrap"></div>
+
+    <script src="./js/otamatone.js"></script>
+    <script src="./js/common.js"></script>
+</body>
+
+</html>

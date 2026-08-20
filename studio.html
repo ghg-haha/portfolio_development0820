@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sound Hamtory - Sequencer</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="./css/studio.css">
+    <link rel="stylesheet" href="./css/sequencer_final.css">
+</head>
+
+<body>
+    <div id="wrap" class="normal">
+        <div id="header-wrap"></div>
+        <!-- MAIN -->
+        <main id="main" class="sequencer_main">
+            <section class="sequencer_workspace borderB">
+
+                <div class="song_title_area">
+                    <input
+                        type="text"
+                        class="song_title_input"
+                        value="My First Song"
+                        maxlength="30"
+                        aria-label="곡 제목"
+                        readonly
+                    >
+                    <button type="button" class="song_title_edit" aria-label="곡 제목 수정">
+                        <img src="./images/icon24_edit.png" alt="">
+                    </button>
+                </div>
+
+                <section class="track_control_panel">
+                    <button type="button" class="add_track_button">ADD TRACKS ＋</button>
+
+                    <template id="track_control_template">
+                        <article class="track_control" data-instrument="music">
+                            <div class="instrument_info">
+                                <img src="./images/track_music_note.png" alt="음악 노트 아이콘">
+                                <strong>MUSIC</strong>
+                            </div>
+                            <div class="track_setting">
+                                <div class="solo_mute_group">
+                                    <button type="button" class="solo_button borderS">S</button>
+                                    <button type="button" class="mute_button borderS">M</button>
+                                </div>
+                                <div class="pan_control" aria-label="좌우 음향 조절">
+                                    <span>L</span><span class="pan_dial"><i></i></span><span>R</span>
+                                </div>
+                                <div class="track_volume" aria-label="트랙 음량 조절">
+                                    <img src="./images/icon16_sound.svg" alt="" class="volume_icon">
+                                    <span class="volume_slider"><i></i></span>
+                                </div>
+                            </div>
+                        </article>
+                    </template>
+                </section>
+
+                <section class="timeline_panel">
+                    <div class="measure_header" aria-label="마디 번호">
+                        <div class="measure_track"></div>
+                    </div>
+
+                    <div class="timeline_scroll">
+                        <div class="timeline_content">
+                            <div class="playhead" role="slider" tabindex="0" aria-label="재생 위치" aria-valuemin="0" aria-valuenow="0"></div>
+
+                            <div class="timeline_add_track" aria-hidden="true"></div>
+                        </div>
+                    </div>
+
+                </section>
+
+                <aside class="file_panel">
+                    <h2>FILES</h2>
+
+                    <div class="file_list"></div>
+
+                    <div class="file_actions">
+                        <button type="button" class="import_file_button borderS">IMPORT FILES +</button>
+                        <button type="button" class="delete_file_button borderS" disabled>DELETE</button>
+                    </div>
+                    <input type="file" class="import_file_input" accept="audio/*" multiple>
+
+                    <div class="save_export_group borderB">
+                        <button type="button" class="save_button"><img src="./images/icon24_save_final.svg" alt="">Save</button>
+                        <button type="button" class="export_button"><img src="./images/icon24_export_final.svg" alt="">Export</button>
+                    </div>
+                </aside>
+            </section>
+
+            <div class="clip_menu borderB" role="menu" aria-label="노트 블록 메뉴">
+                <button type="button" data-clip-action="cut" role="menuitem">Cut</button>
+                <button type="button" data-clip-action="copy" role="menuitem">Copy</button>
+                <button type="button" data-clip-action="delete" role="menuitem">Delete</button>
+                <button type="button" data-clip-action="edit" role="menuitem">Edit</button>
+            </div>
+
+            <div class="delete_file_modal" role="dialog" aria-modal="true" aria-labelledby="delete_file_title" hidden>
+                <section class="delete_file_confirm borderB">
+                    <h2 id="delete_file_title">이 음악을 삭제할까요?</h2>
+                    <p>삭제한 음악은 다시 복구할 수 없습니다.</p>
+                    <div class="delete_file_actions">
+                        <button type="button" class="delete_file_cancel borderS">Cancel</button>
+                        <button type="button" class="delete_file_yes borderS">Delete</button>
+                    </div>
+                </section>
+            </div>
+
+            <section class="master_control borderB">
+                <div class="master_volume">
+                    <strong>MASTER</strong>
+                    <span class="master_slider"><i></i></span>
+                    <span class="volume_meter" aria-hidden="true"></span>
+                </div>
+
+                <div class="history_control borderB">
+                    <button type="button" class="undo_button"><img src="./images/icon24_leftarrow.png" alt=""><small>Back</small></button>
+                    <button type="button" class="redo_button"><img src="./images/icon24_rightarrow.png" alt=""><small>Undo</small></button>
+                </div>
+
+                <div class="transport_control">
+                    <button type="button" class="previous_button borderS" aria-label="처음으로"><img src="./images/icon32_prevarrow.svg" alt=""></button>
+                    <button type="button" class="play_button borderB" aria-label="재생"><img src="./images/icon32_play.svg" alt=""></button>
+                    <button type="button" class="record_button borderS" aria-label="녹음"><img src="./images/icon20_record_circle.svg" alt=""></button>
+                </div>
+
+                <button type="button" class="metronome_button borderS">
+                    <img src="./images/icon24_metronome.png" alt="">
+                    Metronome
+                </button>
+
+                <output class="position_display">00:00:000 / 00:00:000</output>
+            </section>
+        </main>
+    </div>
+
+    <div class="step5">
+    <span>STEP 5</span>
+    <p>
+        노래편집하고 저장해서
+    </p>
+</div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script></script>
+    <a href="javascript:;" class="tutorial_skip">SKIP ></a>
+    <script src="./js/sequencer.js"></script>
+    <script src="./js/common.js"></script>
+
+</body>
+</html>

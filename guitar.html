@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guitar</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/guitar.css">
+    <link rel="stylesheet" href="./css/common_instrument.css">
+>
+
+
+    <link rel="stylesheet" href="./css/guitarmedia.css">
+</head>
+<body>
+    <div id="wrap">
+        <div id="header-wrap"></div>
+        <section>
+            <div class="instrument_character">
+                <!-- 평소 이미지 -->
+                <img src="./images/guitar1.png"
+                    alt=""
+                    class="character_basic">
+
+                <!-- 연주 이미지 -->
+                <img src="./images/guitar2.png"
+                    alt=""
+                    class="character_play">
+            </div>
+            <article class="panel">
+                <button type="button" class="se_toggle">Create Music!</button>
+
+                <div class="guitar_area">
+                    <div class="guitar_instrument">
+                        <img src="./images/guitar.png" alt="일렉 기타" class="guitar_image">
+
+                        <div class="guitar_chords">
+                            <button type="button" class="chord_c" data-chord="C">C</button>
+                            <button type="button" class="chord_d" data-chord="D">D</button>
+                            <button type="button" class="chord_e" data-chord="E">E</button>
+                            <button type="button" class="chord_f" data-chord="F">F</button>
+                            <button type="button" class="chord_g" data-chord="G">G</button>
+                            <button type="button" class="chord_a" data-chord="A">A</button>
+                            <button type="button" class="chord_b" data-chord="B">B</button>
+                        </div>
+
+                        <div class="guitar_strings">
+                            <button type="button" class="guitar_string" data-string="0" aria-label="기타 6번 줄"></button>
+                            <button type="button" class="guitar_string" data-string="1" aria-label="기타 5번 줄"></button>
+                            <button type="button" class="guitar_string" data-string="2" aria-label="기타 4번 줄"></button>
+                            <button type="button" class="guitar_string" data-string="3" aria-label="기타 3번 줄"></button>
+                            <button type="button" class="guitar_string" data-string="4" aria-label="기타 2번 줄"></button>
+                            <button type="button" class="guitar_string" data-string="5" aria-label="기타 1번 줄"></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="sequencer-wrap"></div>
+            </article>
+        </section>
+    </div>
+
+    <section class="login-modal">
+        <div class="login-popup">
+            <button type="button" class="login-close"><img src="./images/icon24_closed.svg" alt=""></button>
+            <div class="login-title">
+                <span>SOUND HAMTORY</span><h2>WELCOME!</h2>
+                <p>사운드 하모니에 오신 것을 환영해요!</p>
+            </div>
+            <form class="login-form">
+                <div class="login_id borderB"><input type="text" id="loginId" placeholder="이메일 또는 사용자 이름"></div>
+                <div class="login_password borderB">
+                    <input type="password" id="password" placeholder="비밀번호">
+                    <img src="./images/icon16_eyeclosed.svg" alt="비밀번호 보기" class="passwordshow show">
+                    <img src="./images/icon16_eyeopen.svg" alt="비밀번호 숨기기" class="passwordshow">
+                </div>
+                <article class="login_option">
+                    <label class="remember">
+                        <img src="./images/icon16_checkboxnone.svg" alt="체크박스" class="show">
+                        <img src="./images/icon16_checkboxfilled.svg" alt="체크박스 활성화"> 로그인 상태 유지
+                    </label>
+                    <div><a href="javascript:;">회원가입</a> <a href="javascript:;">비밀번호 찾기</a></div>
+                </article>
+                <button type="submit" class="login-submit borderB">로그인</button>
+            </form>
+            <div class="login-divider"><span></span><p>간편로그인</p><span></span></div>
+            <div class="social_login">
+                <a href="javascript:;" class="social_btn google borderB"><img src="./images/icon24_google.svg" alt="">GOOGLE</a>
+                <a href="javascript:;" class="social_btn kakao borderB"><img src="./images/icon24_kakao.svg" alt="">KAKAO</a>
+                <a href="javascript:;" class="social_btn naver borderB"><img src="./images/icon24_naver.svg" alt="">NAVER</a>
+            </div>
+        </div>
+    </section>
+
+    <div id="popup-wrap"></div>
+
+    <script src="./js/guitar.js"></script>
+    <script src="./js/common.js"></script>
+</body>
+</html>

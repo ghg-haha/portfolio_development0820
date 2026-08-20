@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/media.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <title>SOUND HAMTORY</title>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header-wrap"></div>
+        <main class="main">
+            <section class="main1">
+                <a href="./piano.html" class="piano">
+                    <h1 class="piano-title">
+                        <span>P</span>
+                        <span>I</span>
+                        <span>A</span>
+                        <span>N</span>
+                        <span>O</span>
+                    </h1>
+                    <img src="./images/cat1.png" alt="피아노치는고양이">
+                    <div>
+                        <span>STEP 1</span>
+                        <p>연주하고 싶은 악기 클릭!</p>
+                    </div>
+                </a>
+                <article class="slugon">
+                    <h1>Create Music Anywhere.</h1>
+                </article>
+                <a href="./drum.html" class="drum">
+                    <h1>DRUM</h1>
+                    <img src="./images/drum1.png" alt="드럼치는원숭이">
+                </a>
+            </section>
+            <section class="main2">
+                <div class="tandotamatone">
+                    <a href="javascript:;" class="tutorial">
+                        <div>
+                            <p>TUTORIAL &nbsp; TUTORIAL &nbsp; TUTORIAL &nbsp; TUTORIAL &nbsp; TUTORIAL &nbsp; TUTORIAL &nbsp; TUTORIAL</p>
+
+                            <p>&nbsp; &nbsp; TUTORIAL &nbsp; TUTORIAL &nbsp; TUTORIAL &nbsp; TUTORIAL &nbsp; TUTORIAL &nbsp; TUTORIAL &nbsp; TUTORIAL</p>
+
+                            <p>TUTORIAL &nbsp; TUTORIAL &nbsp; TUTORIAL &nbsp; TUTORIAL &nbsp; TUTORIAL &nbsp; TUTORIAL &nbsp; TUTORIAL</p>
+                        </div>
+                        
+
+                            <h1>PLAY HOW?</h1>
+                        <div>
+                            <p>TUTORIAL &nbsp; TUTORIAL &nbsp; TUTORIAL &nbsp; TUTORIAL &nbsp; TUTORIAL &nbsp; TUTORIAL &nbsp; TUTORIAL</p>
+
+                            <p>&nbsp; &nbsp; &nbsp; TUTORIAL &nbsp; TUTORIAL &nbsp; TUTORIAL &nbsp; TUTORIAL &nbsp; TUTORIAL &nbsp; TUTORIAL &nbsp; TUTORIAL</p>
+
+                            <p>TUTORIAL &nbsp; TUTORIAL &nbsp; TUTORIAL &nbsp; TUTORIAL &nbsp; TUTORIAL &nbsp; TUTORIAL &nbsp; TUTORIAL</p>
+                        </div>
+                            
+                    </a>
+                    <a href="./otamatone.html" class="otamatone">
+                        <h1>OTA &nbsp;&nbsp; &nbsp; &nbsp; MATONE</h1>
+                        <img src="./images/otamatone1.png" alt="오타마톤 연주하는 햄스터">
+                    </a>
+                </div>
+                <a href="./guitar.html" class="elec">
+                    <article class="elec">
+                    <h1>Electric<br>guitar</h1>
+                    <img src="./images/guitar1.png" alt="일렉기타 연주하는 삽살개">
+                    <h1>Electric<br>guitar</h1>
+                </article>
+                </a>
+            </section>
+        </main>
+        <footer id="footer">
+            <p>© 2026 SOUND HAMTORY. All rights reserved.</p>
+            <nav class="footer_nav">
+                <a href="javascript:;">Features</a>
+                <a href="javascript:;">Pricing</a>
+                <a href="javascript:;">Community</a>
+                <a href="javascript:;">Templates</a>
+                <a href="javascript:;">Help</a>
+                <a href="javascript:;">Center</a>
+            </nav>
+        </footer>
+    </div>
+<a href="./index.html" class="tutorial_skip">SKIP ></a>
+
+
+<script src="./js/common.js"></script>
+<script>
+// 피아노 모션
+const pianoLetters = document.querySelectorAll(".piano-title span");
+
+const pianoTl = gsap.timeline({
+    paused: true,
+    repeat: -1,
+    duration: 0.4
+});
+
+pianoLetters.forEach((letter) => {
+    pianoTl
+        .to(letter, {
+            y: 18,
+            duration: 0.07,
+            ease: "power2.out"
+        })
+        .to(letter, {
+            y: 0,
+            duration: 0.2,
+            ease: "back.out(2)"
+        })
+});
+
+document.querySelector(".piano").addEventListener("mouseenter", () => {
+    pianoTl.restart();
+});
+
+document.querySelector(".piano").addEventListener("mouseleave", () => {
+    pianoTl.pause();
+    gsap.to(pianoLetters, {
+        y: 0,
+    });
+});
+
+// 드럼 모션
+const drum = document.querySelector(".drum > h1");
+
+const drumTl = gsap.timeline({
+    paused: true,
+    repeat: -1
+});
+
+// 1번 두드리기
+drumTl.to(drum, {
+    scale: 1.05,
+    duration: 0.1,
+    ease: "power2.out"
+})
+.to(drum, {
+    scale: 1,
+    duration: 0.12,
+    ease: "power2.in"
+})
+
+// 쉬기
+.to({}, {
+    duration: 0.4
+})
+
+// 2번 빠르게 두드리기
+.to(drum, {
+    scale: 1.1,
+    duration: 0.08,
+    ease: "power2.out"
+})
+.to(drum, {
+    scale: 1,
+    duration: 0.1,
+    ease: "power2.in"
+})
+.to(drum, {
+    scale: 1.1,
+    duration: 0.08,
+    ease: "power2.out"
+})
+.to(drum, {
+    scale: 1,
+    duration: 0.1,
+    ease: "power2.in"
+})
+
+// 다음 패턴 전 쉬기
+.to({}, {
+    duration: 1
+});
+
+document.querySelector(".drum").addEventListener("mouseenter", () => {
+    drumTl.restart();
+});
+
+document.querySelector(".drum").addEventListener("mouseleave", () => {
+    drumTl.pause();
+    gsap.to( drum, {
+        y: 0,
+        duration: 0.2
+    });
+});
+
+// 튜토리얼
+const tutorial = document.querySelector(".tutorial");
+const tutorialTop = document.querySelector(".tutorial > div:first-child");
+const tutorialBottom = document.querySelector(".tutorial > div:last-child");
+
+tutorial.addEventListener("mouseenter", () => {
+
+    gsap.to(tutorialTop, {
+    x: 100,
+    y: -32,
+    duration: 2,
+});
+
+gsap.to(tutorialBottom, {
+    x: -100,
+    y: 32,
+    duration: 2,
+});
+
+});
+
+tutorial.addEventListener("mouseleave", () => {
+
+    gsap.killTweensOf([tutorialTop, tutorialBottom]);
+
+    gsap.to(tutorialTop, {
+        x: 0,
+        y: 0,
+        duration: 0.4,
+        ease: "power2.out"
+    });
+
+    gsap.to(tutorialBottom, {
+        x: 0,
+        y: 0,
+        duration: 0.4,
+        ease: "power2.out"
+    });
+
+});
+
+//오타마톤
+const otamatone = document.querySelector(".otamatone");
+const otamatoneText = otamatone.querySelector(".otamatone > h1");
+
+const otamatoneTl = gsap.timeline({
+    paused: true,
+    repeat: -1
+    
+});
+
+otamatoneTl
+    .to(otamatoneText, {
+        scaleX: 0.9,
+        scaleY: 1.12,
+        duration: 0.5,
+        ease: "power2.out"
+    })
+    .to(otamatoneText, {
+        scaleX: 1.02,
+        scaleY: 0.96,
+        duration: 0.22,
+        ease: "power1.out"
+    })
+    .to(otamatoneText, {
+        scaleY: 1,
+        scaleX: 1,
+        duration: 0.2,
+        ease: "elastic.out(1, 0.5)"
+    });
+
+document.querySelector(".otamatone").addEventListener("mouseenter", () => {
+    otamatoneTl.restart();
+});
+
+document.querySelector(".otamatone").addEventListener("mouseleave", () => {
+    otamatoneTl.pause();
+    gsap.to(otamatoneText, {
+        scaleX: 1,
+        scaleY: 1,
+        duration: 0.2
+    });
+});
+
+
+// 일렉기타
+const electric = document.querySelector(".elec");
+const electricText = electric.querySelectorAll(".elec > h1");
+
+const electricTl = gsap.timeline({
+    paused: true
+});
+
+electricTl
+    // 1차로 길어짐
+    .to(electricText, {
+        scaleY: 2,
+        duration: 0.35,
+        ease: "power2.in"
+    })
+
+    // 다시 줄어듦
+    .to(electricText, {
+        scaleY: 0.7,
+        duration: 0.2,
+        ease: "power2.out"
+    })
+
+    // 더 강하게 길어짐
+    .to(electricText, {
+        scaleY: 2.5,
+        duration: 0.4,
+        ease: "power2.in"
+    })
+
+    // 원래대로
+    .to(electricText, {
+        scaleY: 1,
+        duration: 0.5,
+        ease: "elastic.out(1, 0.5)"
+    });
+
+electric.addEventListener("mouseenter", () => {
+    electricTl.restart();
+});
+
+// 악기 칸 클릭 시 해당 서브페이지로 이동
+document.querySelector(".piano").addEventListener("click", () => {
+    window.location.href = "./piano.html";
+});
+
+document.querySelector(".drum").addEventListener("click", () => {
+    window.location.href = "./drum.html";
+});
+
+document.querySelector(".otamatone").addEventListener("click", () => {
+    window.location.href = "./otamatone.html";
+});
+
+document.querySelector(".elec").addEventListener("click", () => {
+    window.location.href = "./guitar.html";
+});
+
+// =========================
+// 튜토리얼
+// =========================
+const tutorialSkip = document.querySelector(".tutorial_skip");
+
+const main = document.querySelector("main");
+const piano = document.querySelector(".piano");
+
+
+// 튜토리얼 시작
+
+tutorial.addEventListener("click", () => {
+
+    // 튜토리얼 진행 상태 저장
+    localStorage.setItem("tutorial", "true");
+
+    // 전체 화면 어둡게
+    document.body.classList.add("tutorial-active");
+
+    // main 요소 어둡게 + 클릭 막기
+    main.classList.add("tutorial-active");
+
+    // Piano만 밝게 + 클릭 가능
+    piano.classList.add("tutorial-target");
+
+    // Skip 버튼 표시
+    tutorialSkip.classList.add("show");
+});
+
+
+// Skip 버튼
+tutorialSkip.addEventListener("click", () => {
+
+    // 튜토리얼 상태 삭제
+    localStorage.removeItem("tutorial");
+
+    // 튜토리얼 효과 제거
+    document.body.classList.remove("tutorial-active");
+    main.classList.remove("tutorial-active");
+    piano.classList.remove("tutorial-target");
+
+    // Skip 버튼 숨기기
+    tutorialSkip.classList.remove("show");
+});
+</script>
+</body>
+</html>
